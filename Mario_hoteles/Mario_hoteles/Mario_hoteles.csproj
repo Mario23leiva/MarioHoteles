@@ -56,45 +56,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="actividades.cs">
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
     <Compile Include="act_hotel.cs">
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
     <Compile Include="cadenas.cs">
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
     <Compile Include="ciudades.cs">
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="EditarCrearHoteles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EditarCrearHoteles.Designer.cs">
+      <DependentUpon>EditarCrearHoteles.cs</DependentUpon>
     </Compile>
     <Compile Include="hoteles.cs">
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelHotel.Context.cs">
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelHoteles.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHotel.Context.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelHotel.cs">
+    <Compile Include="ModelHoteles.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHotel.tt</DependentUpon>
+      <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelHotel.Designer.cs">
+    <Compile Include="ModelHoteles.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelHotel.edmx</DependentUpon>
+      <DependentUpon>ModelHoteles.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Orm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ViewModel\CadenasOrm.cs" />
+    <Compile Include="ViewModel\HotelesOrm.cs" />
+    <EmbeddedResource Include="EditarCrearHoteles.resx">
+      <DependentUpon>EditarCrearHoteles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,14 +117,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="ModelHotel.edmx">
+    <EntityDeploy Include="ModelHoteles.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelHotel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelHoteles.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelHotel.edmx.diagram">
-      <DependentUpon>ModelHotel.edmx</DependentUpon>
+    <None Include="ModelHoteles.edmx.diagram">
+      <DependentUpon>ModelHoteles.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\hoteles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,15 +140,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelHotel.Context.tt">
+    <Content Include="ModelHoteles.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelHotel.Context.cs</LastGenOutput>
-      <DependentUpon>ModelHotel.edmx</DependentUpon>
+      <DependentUpon>ModelHoteles.edmx</DependentUpon>
+      <LastGenOutput>ModelHoteles.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelHotel.tt">
+    <Content Include="ModelHoteles.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelHotel.edmx</DependentUpon>
-      <LastGenOutput>ModelHotel.cs</LastGenOutput>
+      <DependentUpon>ModelHoteles.edmx</DependentUpon>
+      <LastGenOutput>ModelHoteles.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

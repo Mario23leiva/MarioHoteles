@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hoteles_efModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="hoteles_efModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="act_hotel">
           <Key>
             <PropertyRef Name="id_ciudad" />
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="hoteles_efModelStoreContainer">
+        <EntityContainer Name="hoteles_efModel1StoreContainer">
           <EntitySet Name="act_hotel" EntityType="Self.act_hotel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="actividades" EntityType="Self.actividades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cadenas" EntityType="Self.cadenas" Schema="dbo" store:Type="Tables" />
@@ -128,7 +128,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="hoteles_efModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="hoteles_efModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="act_hotel">
           <Key>
             <PropertyRef Name="id_ciudad" />
@@ -233,7 +233,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="hoteles_efEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="hoteles_entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="act_hotel" EntityType="Self.act_hotel" />
           <EntitySet Name="actividades" EntityType="Self.actividades" />
           <EntitySet Name="cadenas" EntityType="Self.cadenas" />
@@ -261,9 +261,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hoteles_efModelStoreContainer" CdmEntityContainer="hoteles_efEntities">
+        <EntityContainerMapping StorageEntityContainer="hoteles_efModel1StoreContainer" CdmEntityContainer="hoteles_entities">
           <EntitySetMapping Name="act_hotel">
-            <EntityTypeMapping TypeName="hoteles_efModel.act_hotel">
+            <EntityTypeMapping TypeName="hoteles_efModel1.act_hotel">
               <MappingFragment StoreEntitySet="act_hotel">
                 <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -273,7 +273,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="actividades">
-            <EntityTypeMapping TypeName="hoteles_efModel.actividades">
+            <EntityTypeMapping TypeName="hoteles_efModel1.actividades">
               <MappingFragment StoreEntitySet="actividades">
                 <ScalarProperty Name="id_act" ColumnName="id_act" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -281,7 +281,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cadenas">
-            <EntityTypeMapping TypeName="hoteles_efModel.cadenas">
+            <EntityTypeMapping TypeName="hoteles_efModel1.cadenas">
               <MappingFragment StoreEntitySet="cadenas">
                 <ScalarProperty Name="cif" ColumnName="cif" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -290,7 +290,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ciudades">
-            <EntityTypeMapping TypeName="hoteles_efModel.ciudades">
+            <EntityTypeMapping TypeName="hoteles_efModel1.ciudades">
               <MappingFragment StoreEntitySet="ciudades">
                 <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -298,7 +298,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hoteles">
-            <EntityTypeMapping TypeName="hoteles_efModel.hoteles">
+            <EntityTypeMapping TypeName="hoteles_efModel1.hoteles">
               <MappingFragment StoreEntitySet="hoteles">
                 <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Mario_hoteles
 {
-    public partial class Form1 : Form
+    public partial class EditarCrearHoteles : Form
     {
-        public Form1()
+        public EditarCrearHoteles()
         {
             InitializeComponent();
+        }
+
+        public EditarCrearHoteles(hoteles hotel)
+        {
+            InitializeComponent();
+            cargarHotel(hotel);
+        }
+
+        private void cargarHotel(hoteles hotel)
+        {
+            
         }
     }
 }

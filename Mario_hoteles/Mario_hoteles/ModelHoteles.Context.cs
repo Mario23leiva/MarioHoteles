@@ -13,10 +13,10 @@ namespace Mario_hoteles
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class hoteles_efEntities : DbContext
+    public partial class hoteles_entities : DbContext
     {
-        public hoteles_efEntities()
-            : base("name=hoteles_efEntities")
+        public hoteles_entities()
+            : base("name=hoteles_entities")
         {
         }
     
