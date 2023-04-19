@@ -100,6 +100,7 @@
     <Compile Include="Orm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ActividadesHotelesOrm.cs" />
     <Compile Include="ViewModel\CadenasOrm.cs" />
     <Compile Include="ViewModel\HotelesOrm.cs" />
     <EmbeddedResource Include="EditarCrearHoteles.resx">
@@ -125,6 +126,10 @@
       <DependentUpon>ModelHoteles.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\actividades.datasource" />
+    <None Include="Properties\DataSources\act_hotel.datasource" />
+    <None Include="Properties\DataSources\cadenas.datasource" />
+    <None Include="Properties\DataSources\ciudades.datasource" />
     <None Include="Properties\DataSources\hoteles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

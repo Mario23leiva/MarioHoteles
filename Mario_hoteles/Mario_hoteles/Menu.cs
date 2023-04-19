@@ -18,7 +18,7 @@ namespace Mario_hoteles
         public Menu()
         {
             InitializeComponent();
-            hotelesBindingSource.DataSource = HotelesOrm.SelectByMale();
+            hotelesBindingSource.DataSource = HotelesOrm.SelectHoteles();
             
         }
 
