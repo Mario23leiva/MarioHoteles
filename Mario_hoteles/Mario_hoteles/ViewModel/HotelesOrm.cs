@@ -27,13 +27,13 @@ namespace Mario_hoteles.ViewModel
             if (hotelToUpdate != null)
             {
                 // 2. Modificar las propiedades del objeto hotel recuperado con los valores actualizados
-                hotelToUpdate.nombre = hotel.nombre;
-                hotelToUpdate.cadenas = hotel.cadenas;
-                hotelToUpdate.ciudades = hotel.ciudades;
-                hotelToUpdate.tipo = hotel.tipo;
-                hotelToUpdate.telefono = hotel.telefono;
-                hotelToUpdate.categoria = hotel.categoria;
-                hotelToUpdate.direccion = hotel.direccion;
+                hotelToUpdate.nombre = update.nombre;
+                hotelToUpdate.cadenas = update.cadenas;
+                hotelToUpdate.ciudades = update.ciudades;
+                hotelToUpdate.tipo = update.tipo;
+                hotelToUpdate.telefono = update.telefono;
+                hotelToUpdate.categoria = update.categoria;
+                hotelToUpdate.direccion = update.direccion;
 
                 // 3. Guardar los cambios en la base de datos
                 Orm.MySaveChanges();
