@@ -27,9 +27,6 @@ namespace Mario_hoteles.ViewModel
             if (hotelToUpdate != null)
             {
                 // 2. Modificar las propiedades del objeto hotel recuperado con los valores actualizados
-                hotelToUpdate.nombre = update.nombre;
-                hotelToUpdate.cadenas = update.cadenas;
-                hotelToUpdate.ciudades = update.ciudades;
                 hotelToUpdate.tipo = update.tipo;
                 hotelToUpdate.telefono = update.telefono;
                 hotelToUpdate.categoria = update.categoria;

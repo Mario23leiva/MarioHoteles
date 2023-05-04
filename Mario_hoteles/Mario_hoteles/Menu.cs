@@ -18,8 +18,13 @@ namespace Mario_hoteles
         public Menu()
         {
             InitializeComponent();
-            hotelesBindingSource.DataSource = HotelesOrm.SelectHoteles();
+            RefrescarTabla();
             
+        }
+
+        private void RefrescarTabla()
+        {
+            hotelesBindingSource.DataSource = HotelesOrm.SelectHoteles();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -59,12 +64,23 @@ namespace Mario_hoteles
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0) // Comprueba si hay una fila seleccionada
             {
-                
 
                 hot = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
-
+                EditarCrearHoteles editarCrear = new EditarCrearHoteles(hot);
+                editarCrear.ShowDialog();
+                RefrescarTabla();
             }
         }
     }

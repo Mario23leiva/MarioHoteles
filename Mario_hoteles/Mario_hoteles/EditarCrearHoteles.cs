@@ -28,6 +28,8 @@ namespace Mario_hoteles
             cargarHotel(hotelSeleccionado);
             List<actividades> actividades = ActividadesHotelesOrm.SelectActividades();
             actividadesBindingSource.DataSource = actividades;
+            textBoxNombre.Enabled = false;
+            textBoxCiudad.Enabled = false;
         }
 
         private void cargarHotel(hoteles hotel)
@@ -80,7 +82,7 @@ namespace Mario_hoteles
             // Actualizar el objeto en la base de datos
             HotelesOrm.UpdateHotel(hotelSeleccionado, hotelToUpdate);
             
-
+            this.Close();
         }
 
         private hoteles cogerHotel()
@@ -88,7 +90,6 @@ namespace Mario_hoteles
             hoteles hotelToUpdate = new hoteles()
             {
                 id_ciudad = hotelSeleccionado.id_ciudad,
-                nombre = textBoxNombre.Text,
                 direccion = textBoxDireccion.Text,
                 telefono = int.Parse(textBoxTelefono.Text),
                 tipo = textBoxUbicacion.Text,
