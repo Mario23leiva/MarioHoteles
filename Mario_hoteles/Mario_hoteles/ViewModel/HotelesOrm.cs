@@ -10,14 +10,18 @@ namespace Mario_hoteles.ViewModel
     {
         public static List<hoteles> SelectHoteles()
         {
-            List<hoteles> _hoteles = (
-                    from t in Orm.entitites.hoteles
-                
-                    select t
-                ).ToList();
-
-            return _hoteles;
+            return Orm.entitites.hoteles.ToList();
         }
+
+        public static void AddHotel(hoteles hotel)
+        {
+            // 1. Agregar el nuevo objeto hotel al contexto de la base de datos
+            Orm.entitites.hoteles.Add(hotel);
+
+            // 2. Guardar los cambios en la base de datos
+            Orm.MySaveChanges();
+        }
+
 
         public static void UpdateHotel(hoteles hotel, hoteles update)
         {
@@ -36,6 +40,22 @@ namespace Mario_hoteles.ViewModel
                 Orm.MySaveChanges();
             }
         }
+
+        public static void DeleteHotel(hoteles hotel)
+        {
+            // 1. Recuperar el hotel de la base de datos
+            var hotelToDelete = Orm.entitites.hoteles.FirstOrDefault(h => h.id_ciudad == hotel.id_ciudad && h.nombre == hotel.nombre);
+
+            if (hotelToDelete != null)
+            {
+                // 2. Eliminar el objeto hotel recuperado de la base de datos
+                Orm.entitites.hoteles.Remove(hotelToDelete);
+
+                // 3. Guardar los cambios en la base de datos
+                Orm.MySaveChanges();
+            }
+        }
+
 
 
 

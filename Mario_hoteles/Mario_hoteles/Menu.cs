@@ -14,17 +14,33 @@ namespace Mario_hoteles
     public partial class Menu : Form
     {
         hoteles hot;
+        Boolean hotel = false;
         
         public Menu()
         {
             InitializeComponent();
-            RefrescarTabla();
-            
+            panelCadenas.Visible = false;
+            panelHoteles.Visible = true;
+            hotelesBindingSource.DataSource = HotelesOrm.SelectHoteles();
+            hotel = true;
+
         }
 
-        private void RefrescarTabla()
+        private void RefrescarTablaHoteles()
         {
+            panelCadenas.Visible = false;
+            panelHoteles.Visible = true;
             hotelesBindingSource.DataSource = HotelesOrm.SelectHoteles();
+            hotel = true;
+
+        }
+
+        private void RefrescarTablaCadenaHoteles()
+        {
+            panelCadenas.Visible = true;
+            panelHoteles.Visible = false;
+            cadenasBindingSource.DataSource = CadenaHotelesOrm.SelectCadenaHoteles();
+            hotel = false;
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -43,8 +59,7 @@ namespace Mario_hoteles
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            EditarCrearHoteles editarCrear = new EditarCrearHoteles();
-            editarCrear.ShowDialog();
+            
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -76,12 +91,34 @@ namespace Mario_hoteles
         {
             if (e.RowIndex >= 0) // Comprueba si hay una fila seleccionada
             {
+                if (hotel)
+                {
+                    hot = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
+                    EditarCrearHoteles editarCrear = new EditarCrearHoteles(hot);
+                    editarCrear.ShowDialog();
+                    RefrescarTablaHoteles();
+                }
+                else
+                {
 
-                hot = (hoteles)dataGridView1.CurrentRow.DataBoundItem;
-                EditarCrearHoteles editarCrear = new EditarCrearHoteles(hot);
-                editarCrear.ShowDialog();
-                RefrescarTabla();
+                }
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            EditarCrearHoteles editarCrear = new EditarCrearHoteles();
+            editarCrear.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            RefrescarTablaCadenaHoteles();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            RefrescarTablaHoteles();
         }
     }
 }

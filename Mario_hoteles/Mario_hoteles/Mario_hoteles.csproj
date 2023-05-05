@@ -101,7 +101,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ActividadesHotelesOrm.cs" />
+    <Compile Include="ViewModel\CadenaHotelesOrm.cs" />
     <Compile Include="ViewModel\CadenasOrm.cs" />
+    <Compile Include="ViewModel\CiudadesOrm.cs" />
     <Compile Include="ViewModel\HotelesOrm.cs" />
     <EmbeddedResource Include="EditarCrearHoteles.resx">
       <DependentUpon>EditarCrearHoteles.cs</DependentUpon>

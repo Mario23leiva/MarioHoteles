@@ -19,32 +19,39 @@ namespace Mario_hoteles
         public EditarCrearHoteles()
         {
             InitializeComponent();
+            if (hotelSeleccionado == null)
+            {
+                button2.Visible = false;
+                actividadesBindingSource.DataSource = ActividadesHotelesOrm.SelectActividades();
+                cadenasBindingSource.DataSource = CadenaHotelesOrm.SelectCadenaHoteles();
+                ciudadesBindingSource.DataSource = CiudadesOrm.SelectCiudades();
+            }
         }
 
         public EditarCrearHoteles(hoteles hotel)
         {
             InitializeComponent();
             hotelSeleccionado = hotel;
-            cargarHotel(hotelSeleccionado);
-            List<actividades> actividades = ActividadesHotelesOrm.SelectActividades();
-            actividadesBindingSource.DataSource = actividades;
+            actividadesBindingSource.DataSource = ActividadesHotelesOrm.SelectActividades();
+            cadenasBindingSource.DataSource = CadenaHotelesOrm.SelectCadenaHoteles();
+            ciudadesBindingSource.DataSource = CiudadesOrm.SelectCiudades();
+            cargarHotel(hotelSeleccionado);            
             textBoxNombre.Enabled = false;
-            textBoxCiudad.Enabled = false;
+            comboBox2.Enabled = false;
         }
 
         private void cargarHotel(hoteles hotel)
         {
             textBoxNombre.Text = hotel.nombre.ToString();
-            textBoxCadenaHotel.Text = hotel.cadenas.nombre.ToString();
-            textBoxCiudad.Text = hotel.ciudades.nombre.ToString();
+            comboBox1.SelectedItem = hotel.cadenas;
+            comboBox2.SelectedItem = hotel.ciudades;
             textBoxUbicacion.Text = hotel.tipo.ToString();
             textBoxTelefono.Text = hotel.telefono.ToString();
             textBoxCategoria.Text = hotel.categoria.ToString();
             textBoxDireccion.Text = hotel.direccion.ToString();
 
-
-            listBox1.DataSource = ActividadesHotelesOrm.SelectAct_Hotel(hotel);
-            //comboBoxActividades.DataSource = ActividadesHotelesOrm.SelectActividades();
+            List<string> listaActividades = ActividadesHotelesOrm.SelectAct_Hotel(hotel);
+            listBoxActividades.DataSource = listaActividades;
         }
 
         private void textBoxNombre_TextChanged(object sender, EventArgs e)
@@ -76,11 +83,26 @@ namespace Mario_hoteles
         private void button1_Click(object sender, EventArgs e)
         {
 
-            // Crear un objeto hoteles con los valores actualizados
-            hoteles hotelToUpdate = cogerHotel();
+            if (button2.Visible == false)
+            {
+                hoteles hotel = new hoteles();
+                hotel.nombre = textBoxNombre.Text;
+                //falta cadena y ciudad
+                hotel.categoria = int.Parse(textBoxCategoria.Text);
+                hotel.telefono = int.Parse(textBoxTelefono.Text);
+                hotel.direccion = textBoxDireccion.Text;
+                hotel.tipo = textBoxUbicacion.Text;
 
-            // Actualizar el objeto en la base de datos
-            HotelesOrm.UpdateHotel(hotelSeleccionado, hotelToUpdate);
+                HotelesOrm.AddHotel(hotel);
+            }
+            else
+            {
+                // Crear un objeto hoteles con los valores actualizados
+                hoteles hotelToUpdate = cogerHotel();
+
+                // Actualizar el objeto en la base de datos
+                HotelesOrm.UpdateHotel(hotelSeleccionado, hotelToUpdate);
+            }
             
             this.Close();
         }
@@ -94,11 +116,27 @@ namespace Mario_hoteles
                 telefono = int.Parse(textBoxTelefono.Text),
                 tipo = textBoxUbicacion.Text,
                 categoria = int.Parse(textBoxCategoria.Text),
-                cadenas = new cadenas() { nombre = textBoxCadenaHotel.Text },
-                ciudades = new ciudades() { nombre = textBoxCiudad.Text }
+                cadenas = new cadenas() { nombre = comboBox1.SelectedItem.ToString() },
+                ciudades = new ciudades() { nombre = comboBox2.SelectedItem.ToString() }
             };
 
             return hotelToUpdate;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            // Actualizar el objeto en la base de datos
+            HotelesOrm.DeleteHotel(hotelSeleccionado);
+
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBoxActividades.Items.Add(comboBoxActividades.SelectedItem);
+
+           
         }
     }
 }
