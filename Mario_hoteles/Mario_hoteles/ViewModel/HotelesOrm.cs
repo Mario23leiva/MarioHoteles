@@ -35,6 +35,7 @@ namespace Mario_hoteles.ViewModel
                 hotelToUpdate.telefono = update.telefono;
                 hotelToUpdate.categoria = update.categoria;
                 hotelToUpdate.direccion = update.direccion;
+                hotelToUpdate.act_hotel = update.act_hotel;
 
                 // 3. Guardar los cambios en la base de datos
                 Orm.MySaveChanges();

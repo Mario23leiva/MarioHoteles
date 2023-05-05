@@ -14,6 +14,7 @@ namespace Mario_hoteles
     public partial class Menu : Form
     {
         hoteles hot;
+        cadenas cad;
         Boolean hotel = false;
         
         public Menu()
@@ -64,17 +65,7 @@ namespace Mario_hoteles
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (hot != null)
-            {
-                EditarCrearHoteles editarCrear = new EditarCrearHoteles(hot);
-                editarCrear.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("No has seleccionado ningún objeto para editar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,8 +98,18 @@ namespace Mario_hoteles
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            EditarCrearHoteles editarCrear = new EditarCrearHoteles();
-            editarCrear.ShowDialog();
+            if (hotel)
+            {
+                EditarCrearHoteles editarCrear = new EditarCrearHoteles();
+                editarCrear.ShowDialog();
+                RefrescarTablaHoteles();
+            }
+            else
+            {
+                EditarCrearCadenaHoteles editarCrear = new EditarCrearCadenaHoteles();
+                editarCrear.ShowDialog();
+                RefrescarTablaCadenaHoteles();
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -119,6 +120,24 @@ namespace Mario_hoteles
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             RefrescarTablaHoteles();
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (!hotel)
+                {
+                    cad = (cadenas)dataGridView2.CurrentRow.DataBoundItem;
+                    EditarCrearCadenaHoteles editarCrear = new EditarCrearCadenaHoteles(cad);
+                    editarCrear.ShowDialog();
+                    RefrescarTablaCadenaHoteles();
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

@@ -67,6 +67,12 @@
     <Compile Include="ciudades.cs">
       <DependentUpon>ModelHoteles.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditarCrearCadenaHoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarCrearCadenaHoteles.Designer.cs">
+      <DependentUpon>EditarCrearCadenaHoteles.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarCrearHoteles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <Compile Include="ViewModel\CadenasOrm.cs" />
     <Compile Include="ViewModel\CiudadesOrm.cs" />
     <Compile Include="ViewModel\HotelesOrm.cs" />
+    <EmbeddedResource Include="EditarCrearCadenaHoteles.resx">
+      <DependentUpon>EditarCrearCadenaHoteles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarCrearHoteles.resx">
       <DependentUpon>EditarCrearHoteles.cs</DependentUpon>
     </EmbeddedResource>

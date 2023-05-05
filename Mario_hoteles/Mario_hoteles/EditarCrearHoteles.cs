@@ -49,9 +49,7 @@ namespace Mario_hoteles
             textBoxTelefono.Text = hotel.telefono.ToString();
             textBoxCategoria.Text = hotel.categoria.ToString();
             textBoxDireccion.Text = hotel.direccion.ToString();
-
-            List<string> listaActividades = ActividadesHotelesOrm.SelectAct_Hotel(hotel);
-            listBoxActividades.DataSource = listaActividades;
+            Fill(hotel.act_hotel.ToList());
         }
 
         private void textBoxNombre_TextChanged(object sender, EventArgs e)
@@ -79,7 +77,35 @@ namespace Mario_hoteles
                 textBoxGradoDificultad.Text = "";
             }
         }
+        private void Fill(List<act_hotel> act_Hotel)
+        {
+            foreach (act_hotel act in act_Hotel)
+            {
+                dataGridView1.Rows.Add();
+                int rowIndex = dataGridView1.Rows.Count - 1;
 
+                dataGridView1.Rows[rowIndex].Cells[0].Value = act.id_act;
+                dataGridView1.Rows[rowIndex].Cells[1].Value = act.actividades.descripcion;
+                dataGridView1.Rows[rowIndex].Cells[2].Value = act.grado;
+            }
+        }
+        private List<act_hotel> GetActHotel()
+        {
+            List<act_hotel> listaActividades = new List<act_hotel>();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                act_hotel actividad = new act_hotel();
+
+                actividad.id_act = Convert.ToInt32(row.Cells[0].Value);
+                actividad.nombre = row.Cells[1].Value.ToString();
+                actividad.grado = Convert.ToInt32(row.Cells[2].Value);
+                actividad.id_ciudad = hotelSeleccionado.id_ciudad;
+                listaActividades.Add(actividad);
+            }
+
+            return listaActividades;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -88,6 +114,7 @@ namespace Mario_hoteles
                 hoteles hotel = new hoteles();
                 hotel.nombre = textBoxNombre.Text;
                 //falta cadena y ciudad
+                hotel.act_hotel = GetActHotel();
                 hotel.categoria = int.Parse(textBoxCategoria.Text);
                 hotel.telefono = int.Parse(textBoxTelefono.Text);
                 hotel.direccion = textBoxDireccion.Text;
@@ -117,7 +144,8 @@ namespace Mario_hoteles
                 tipo = textBoxUbicacion.Text,
                 categoria = int.Parse(textBoxCategoria.Text),
                 cadenas = new cadenas() { nombre = comboBox1.SelectedItem.ToString() },
-                ciudades = new ciudades() { nombre = comboBox2.SelectedItem.ToString() }
+                ciudades = new ciudades() { nombre = comboBox2.SelectedItem.ToString() },
+                act_hotel = GetActHotel()
             };
 
             return hotelToUpdate;
@@ -134,9 +162,50 @@ namespace Mario_hoteles
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listBoxActividades.Items.Add(comboBoxActividades.SelectedItem);
+            int idAct = (int)comboBoxActividades.SelectedValue;
+            string nombre = comboBoxActividades.Text;
+            int grado = int.Parse(textBoxGradoDificultad.Text);
 
-           
+            // Verificar si ya existe el elemento
+            bool existe = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null && (int)row.Cells[0].Value == idAct)
+                {
+                    existe = true;
+                    break;
+                }
+            }
+
+            if (existe)
+            {
+                // Mostrar alerta
+                MessageBox.Show("Este elemento ya fue agregado anteriormente.", "Elemento duplicado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                dataGridView1.Rows.Add();
+
+                int rowIndex = dataGridView1.Rows.Count - 1;
+
+                dataGridView1.Rows[rowIndex].Cells[0].Value = idAct;
+                dataGridView1.Rows[rowIndex].Cells[1].Value = nombre;
+                dataGridView1.Rows[rowIndex].Cells[2].Value = grado;
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Obtenemos la fila seleccionada
+            DataGridViewRow row = dataGridView1.CurrentRow;
+
+            // Si hay una fila seleccionada, la eliminamos
+            if (row != null)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
         }
     }
 }

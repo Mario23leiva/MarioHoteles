@@ -30,3 +30,4 @@ C:\Users\cep.CEPNET0.000\Documents\GitHub\MarioHoteles\Mario_hoteles\Mario_hotel
 C:\Users\cep.CEPNET0.000\Documents\GitHub\MarioHoteles\Mario_hoteles\Mario_hoteles\obj\Debug\Mario_hoteles.pdb
 C:\Users\cep.CEPNET0.000\Documents\GitHub\MarioHoteles\Mario_hoteles\Mario_hoteles\obj\Debug\Mario_hoteles.Menu.resources
 C:\Users\cep.CEPNET0.000\Documents\GitHub\MarioHoteles\Mario_hoteles\Mario_hoteles\obj\Debug\Mario_hoteles.EditarCrearHoteles.resources
+C:\Users\cep.CEPNET0.000\Documents\GitHub\MarioHoteles\Mario_hoteles\Mario_hoteles\obj\Debug\Mario_hoteles.EditarCrearCadenaHoteles.resources

@@ -45,7 +45,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxGradoDificultad = new System.Windows.Forms.TextBox();
-            this.listBoxActividades = new System.Windows.Forms.ListBox();
             this.comboBoxActividades = new System.Windows.Forms.ComboBox();
             this.actividadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,10 +56,15 @@
             this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actividad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -193,14 +197,6 @@
             this.textBoxGradoDificultad.Size = new System.Drawing.Size(100, 20);
             this.textBoxGradoDificultad.TabIndex = 18;
             // 
-            // listBoxActividades
-            // 
-            this.listBoxActividades.FormattingEnabled = true;
-            this.listBoxActividades.Location = new System.Drawing.Point(406, 234);
-            this.listBoxActividades.Name = "listBoxActividades";
-            this.listBoxActividades.Size = new System.Drawing.Size(303, 173);
-            this.listBoxActividades.TabIndex = 19;
-            // 
             // comboBoxActividades
             // 
             this.comboBoxActividades.DataSource = this.actividadesBindingSource;
@@ -293,12 +289,49 @@
             this.button4.TabIndex = 26;
             this.button4.Text = "Eliminar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.actividad,
+            this.grado});
+            this.dataGridView1.Location = new System.Drawing.Point(406, 248);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(303, 150);
+            this.dataGridView1.TabIndex = 27;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // actividad
+            // 
+            this.actividad.HeaderText = "nombre";
+            this.actividad.Name = "actividad";
+            this.actividad.ReadOnly = true;
+            // 
+            // grado
+            // 
+            this.grado.HeaderText = "grado";
+            this.grado.Name = "grado";
+            this.grado.ReadOnly = true;
             // 
             // EditarCrearHoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
@@ -306,7 +339,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxActividades);
-            this.Controls.Add(this.listBoxActividades);
             this.Controls.Add(this.textBoxGradoDificultad);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -328,6 +360,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hotelesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,7 +384,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxGradoDificultad;
-        private System.Windows.Forms.ListBox listBoxActividades;
         private System.Windows.Forms.ComboBox comboBoxActividades;
         private System.Windows.Forms.BindingSource hotelesBindingSource;
         private System.Windows.Forms.BindingSource actividadesBindingSource;
@@ -363,5 +395,9 @@
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actividad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grado;
     }
 }

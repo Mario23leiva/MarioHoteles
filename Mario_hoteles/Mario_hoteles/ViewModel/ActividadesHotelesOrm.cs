@@ -8,9 +8,9 @@ namespace Mario_hoteles.ViewModel
 {
     public static class ActividadesHotelesOrm
     {
-        public static List<String> SelectAct_Hotel(hoteles hotel)
+        public static List<string> SelectAct_Hotel(hoteles hotel)
         {
-            List<String> _act_hotel = Orm.entitites.act_hotel
+            List<string> _act_hotel = Orm.entitites.act_hotel
                 .Where(c => c.id_ciudad == hotel.id_ciudad && c.nombre == hotel.nombre)
                 .Select(c => c.actividades.descripcion)
                 .ToList();

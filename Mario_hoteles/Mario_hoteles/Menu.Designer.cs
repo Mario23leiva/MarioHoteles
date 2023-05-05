@@ -42,6 +42,9 @@
             this.panelHoteles = new System.Windows.Forms.Panel();
             this.panelCadenas = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dir_fis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cifDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cadenasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +54,6 @@
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nombreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dir_fis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cifDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -204,6 +204,31 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(797, 363);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            // 
+            // dir_fis
+            // 
+            this.dir_fis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dir_fis.DataPropertyName = "dir_fis";
+            this.dir_fis.HeaderText = "dir_fis";
+            this.dir_fis.Name = "dir_fis";
+            this.dir_fis.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn1
+            // 
+            this.nombreDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn1.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn1.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn1.Name = "nombreDataGridViewTextBoxColumn1";
+            this.nombreDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cifDataGridViewTextBoxColumn1
+            // 
+            this.cifDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cifDataGridViewTextBoxColumn1.DataPropertyName = "cif";
+            this.cifDataGridViewTextBoxColumn1.HeaderText = "cif";
+            this.cifDataGridViewTextBoxColumn1.Name = "cifDataGridViewTextBoxColumn1";
+            this.cifDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cadenasBindingSource
             // 
@@ -263,30 +288,6 @@
             // hotelesBindingSource
             // 
             this.hotelesBindingSource.DataSource = typeof(Mario_hoteles.hoteles);
-            // 
-            // nombreDataGridViewTextBoxColumn1
-            // 
-            this.nombreDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn1.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn1.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn1.Name = "nombreDataGridViewTextBoxColumn1";
-            this.nombreDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dir_fis
-            // 
-            this.dir_fis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dir_fis.DataPropertyName = "dir_fis";
-            this.dir_fis.HeaderText = "dir_fis";
-            this.dir_fis.Name = "dir_fis";
-            this.dir_fis.ReadOnly = true;
-            // 
-            // cifDataGridViewTextBoxColumn1
-            // 
-            this.cifDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cifDataGridViewTextBoxColumn1.DataPropertyName = "cif";
-            this.cifDataGridViewTextBoxColumn1.HeaderText = "cif";
-            this.cifDataGridViewTextBoxColumn1.Name = "cifDataGridViewTextBoxColumn1";
-            this.cifDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Menu
             // 
