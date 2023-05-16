@@ -100,8 +100,8 @@ namespace Mario_hoteles
                 actividad.id_act = Convert.ToInt32(row.Cells[0].Value);
                 actividad.nombre = row.Cells[1].Value.ToString();
                 actividad.grado = Convert.ToInt32(row.Cells[2].Value);
-                actividad.id_ciudad = hotelSeleccionado.id_ciudad;
-                listaActividades.Add(actividad);
+                actividad.id_ciudad = (int)comboBox2.SelectedValue;
+                listaActividades.Add(actividad);   
             }
 
             return listaActividades;
@@ -113,14 +113,24 @@ namespace Mario_hoteles
             {
                 hoteles hotel = new hoteles();
                 hotel.nombre = textBoxNombre.Text;
-                //falta cadena y ciudad
+                hotel.id_ciudad = (int)comboBox2.SelectedValue;
                 hotel.act_hotel = GetActHotel();
                 hotel.categoria = int.Parse(textBoxCategoria.Text);
                 hotel.telefono = int.Parse(textBoxTelefono.Text);
                 hotel.direccion = textBoxDireccion.Text;
+                hotel.cif = comboBox1.SelectedValue.ToString();
                 hotel.tipo = textBoxUbicacion.Text;
 
-                HotelesOrm.AddHotel(hotel);
+               
+                string msgError = HotelesOrm.Add(hotel);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Saved", "guardado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

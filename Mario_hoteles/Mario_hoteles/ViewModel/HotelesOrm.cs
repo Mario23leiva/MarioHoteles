@@ -21,7 +21,12 @@ namespace Mario_hoteles.ViewModel
             // 2. Guardar los cambios en la base de datos
             Orm.MySaveChanges();
         }
+        public static string Add(hoteles _hoteles)
+        {
+            Orm.entitites.hoteles.Add(_hoteles);
 
+            return Orm.MySaveChanges();
+        }
 
         public static void UpdateHotel(hoteles hotel, hoteles update)
         {
