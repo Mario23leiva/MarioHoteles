@@ -138,7 +138,17 @@ namespace Mario_hoteles
                 hoteles hotelToUpdate = cogerHotel();
 
                 // Actualizar el objeto en la base de datos
-                HotelesOrm.UpdateHotel(hotelSeleccionado, hotelToUpdate);
+
+                string msgError = HotelesOrm.UpdateHotel(hotelSeleccionado, hotelToUpdate);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Updated", "actualizado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             
             this.Close();
@@ -165,9 +175,20 @@ namespace Mario_hoteles
         {
 
             // Actualizar el objeto en la base de datos
-            HotelesOrm.DeleteHotel(hotelSeleccionado);
+            
 
-            this.Close();
+            
+            string msgError = HotelesOrm.DeleteHotel(hotelSeleccionado);
+            if (msgError == "")
+            {
+                MessageBox.Show("Deleted", "eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)

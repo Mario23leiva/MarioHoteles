@@ -48,13 +48,30 @@ namespace Mario_hoteles
             cadenas cadenaUpdate = cogerCadena();
             if (buttonEliminar.Visible)
             {
-                CadenaHotelesOrm.UpdateCadena(cadenaSeleccionada, cadenaUpdate);
-                MessageBox.Show("Cadena actualizada");
+                
+                string msgError = CadenaHotelesOrm.UpdateCadena(cadenaSeleccionada, cadenaUpdate);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Updated", "actualizado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                CadenaHotelesOrm.AddCadena(cadenaUpdate);
-                MessageBox.Show("Cadena añadida");
+                string msgError = CadenaHotelesOrm.AddCadena(cadenaUpdate);
+                if (msgError == "")
+                {
+                    MessageBox.Show("Saved", "guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
             this.Close();
@@ -74,9 +91,17 @@ namespace Mario_hoteles
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            CadenaHotelesOrm.DeleteCadena(cadenaSeleccionada);
-            MessageBox.Show("Cadena eliminada");
-            this.Close();
+
+            string msgError = CadenaHotelesOrm.DeleteCadena(cadenaSeleccionada);
+            if (msgError == "")
+            {
+                MessageBox.Show("Deleted", "eliminado correctamente", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(msgError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
